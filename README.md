@@ -23,7 +23,7 @@ Same modular approach and wiki look-and-feel as **DR-for-IBM-v2**, but **no DR r
 Requires **Node.js** only (no npm packages).
 
 ```bash
-cd C:\Users\dkvel\Code\DOC-for-IBM
+cd C:\Projects\Code\DOC-for-IBM
 
 # 1) Demo discovery (2-system grid fixtures: Oslo + Trondheim)
 node discover/discover.js --mock
