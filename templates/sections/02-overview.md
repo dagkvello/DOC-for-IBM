@@ -37,14 +37,24 @@ Discovery classifies the document from array data — it does **not** assume a F
 
 > **Scope:** Configuration documentation only — not a DR runbook. Partnerships and replication policies are topology facts.
 
-### 1.2 Refresh after array changes
+### 1.2 Topology maps (auto-generated)
+
+Diagrams are built from the same discovery inventory as the tables (Mermaid, rendered in the HTML wiki).
+
+{{DIAGRAM_SYSTEMS}}
+
+{{DIAGRAM_HOSTS_STORAGE}}
+
+{{DIAGRAM_STORAGE_STACK}}
+
+### 1.3 Refresh after array changes
 
 ```bash
 node discover/discover.js --hosts <ip1>[,<ip2>...] --user <u> --pass <p> --write-generated
 node build-wiki.js
 ```
 
-### 1.3 Document maintenance
+### 1.4 Document maintenance
 
 | Item | Owner / process |
 |------|-----------------|

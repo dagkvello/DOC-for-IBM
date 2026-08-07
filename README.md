@@ -112,6 +112,20 @@ DOC-for-IBM/
 
 ---
 
+## Topology diagrams
+
+The wiki auto-generates **Mermaid** topology maps from inventory (same data as the tables):
+
+| Diagram | Marker | Content |
+|---------|--------|---------|
+| Systems & links | `{{DIAGRAM_SYSTEMS}}` | Arrays, partnerships, Flash Grid |
+| Host ↔ storage | `{{DIAGRAM_HOSTS_STORAGE}}` | Hosts / host clusters → arrays |
+| Storage stack | `{{DIAGRAM_STORAGE_STACK}}` | System → pools / volume groups |
+
+Rendered in HTML via Mermaid (CDN). Large host lists are capped with a note; full data stays in tables / `inventory.yaml`.
+
+Physical fabric (FC switches, ISLs) is **not** discovered via REST — maps are logical.
+
 ## What discovery collects
 
 | REST command | Section |

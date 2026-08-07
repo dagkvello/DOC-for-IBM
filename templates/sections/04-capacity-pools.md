@@ -2,6 +2,12 @@
 
 Storage pools (`lsmdiskgrp`) across all systems in scope.
 
+### 3.1 Storage stack map
+
+{{DIAGRAM_STORAGE_STACK}}
+
+### 3.2 Pool inventory
+
 {{INVENTORY_POOLS}}
 
 **Notes:**

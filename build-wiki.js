@@ -28,6 +28,7 @@ const {
 const { loadYamlFile } = require('./lib/load-yaml');
 const { buildTokens, applyTokens } = require('./lib/tokens');
 const { buildInventoryMarkdown, applyInventoryMarkers } = require('./lib/inventory-md');
+const { buildDiagrams, applyDiagramMarkers } = require('./lib/diagrams');
 const { expandFile } = require('./lib/expand');
 const { mergeConfig, mergeInventory } = require('./discover/map-to-yaml');
 
@@ -259,9 +260,11 @@ function assembleMarkdown(configPath, inventoryPath, args = {}) {
   md = md.replace(/<!--[\s\S]*?-->/g, '');
   const inv = buildInventoryMarkdown(config, inventory);
   md = applyInventoryMarkers(md, inv);
+  const diagrams = buildDiagrams(config, inventory, 'doc');
+  md = applyDiagramMarkers(md, diagrams, 'doc');
   md = applyTokens(md, tokens);
 
-  return { md, config, inventory, inv, tokens };
+  return { md, config, inventory, inv, tokens, diagrams };
 }
 
 function renderWikiHtml({ md, config, inv, tokens }) {
