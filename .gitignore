@@ -1,0 +1,5 @@
+out/*.html
+out/*.md
+!out/.gitkeep
+discover/dump/
+*.generated.yaml

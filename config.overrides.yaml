@@ -1,0 +1,21 @@
+# Human fields — never overwritten by discovery. Merged on top of discovered config.
+
+customer:
+  name: "Customer Inc"
+  audience: "Storage administrators; Architects; Auditors"
+
+author: "Dag Kvello, Arrow ECS"
+doc_version: "1.0"
+
+# Optional site labels when array location field is empty
+# system:
+#   location: "Oslo"
+
+grid:
+  notes: "Documented Flash Grid members (edit after discovery)"
+
+# Optional inventory annotations by array_id:
+# inventory:
+#   systems:
+#     - array_id: "oslo.fs9500"
+#       location: "Oslo DC"

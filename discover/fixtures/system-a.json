@@ -1,0 +1,115 @@
+{
+  "host": "10.10.1.51",
+  "label": "system-a",
+  "collected_at": "2026-08-07T10:00:00.000Z",
+  "commands": {
+    "lssystem": {
+      "id": "0000020420A0A0A1",
+      "name": "oslo.fs9500",
+      "location": "Oslo",
+      "product_name": "IBM FlashSystem 9500",
+      "code_level": "9.1.3.0",
+      "total_mdisk_capacity": "450.0TB",
+      "total_used_capacity": "180.0TB",
+      "flash_grid_name": "FS-grid-NO"
+    },
+    "lsenclosure": [{ "id": "1", "status": "online" }, { "id": "2", "status": "online" }],
+    "lsnode": [
+      { "id": "1", "name": "node1", "status": "online", "IO_group_name": "io_grp0", "config_node": "yes" },
+      { "id": "2", "name": "node2", "status": "online", "IO_group_name": "io_grp0" }
+    ],
+    "lsmdiskgrp": [
+      {
+        "id": "0",
+        "name": "pool_prod",
+        "status": "online",
+        "capacity": "300.00TB",
+        "free_capacity": "140.00TB",
+        "used_capacity": "160.00TB",
+        "easy_tier": "on",
+        "mdisk_count": "8"
+      },
+      {
+        "id": "1",
+        "name": "pool_infra",
+        "status": "online",
+        "capacity": "150.00TB",
+        "free_capacity": "90.00TB",
+        "used_capacity": "60.00TB",
+        "easy_tier": "on",
+        "mdisk_count": "4"
+      }
+    ],
+    "lsmdisk": [],
+    "lshost": [
+      {
+        "id": "0",
+        "name": "esx01",
+        "status": "degraded",
+        "type": "generic",
+        "IO_group_name": "io_grp0",
+        "port_count": "4",
+        "host_cluster_name": "PROD_cluster"
+      },
+      {
+        "id": "1",
+        "name": "esx02",
+        "status": "online",
+        "type": "generic",
+        "IO_group_name": "io_grp0",
+        "port_count": "4",
+        "host_cluster_name": "PROD_cluster"
+      }
+    ],
+    "lshostcluster": [
+      { "id": "0", "name": "PROD_cluster", "status": "online", "host_count": "2" }
+    ],
+    "lsvdisk": [
+      {
+        "id": "10",
+        "name": "vol_ad01",
+        "capacity": "500.00GB",
+        "status": "online",
+        "mdisk_grp_name": "pool_infra",
+        "volume_group_name": "VG_CORE",
+        "type": "striped"
+      },
+      {
+        "id": "11",
+        "name": "vol_db01",
+        "capacity": "4.00TB",
+        "status": "online",
+        "mdisk_grp_name": "pool_prod",
+        "volume_group_name": "VG_ERP",
+        "type": "striped"
+      },
+      {
+        "id": "12",
+        "name": "vol_app01",
+        "capacity": "2.00TB",
+        "status": "online",
+        "mdisk_grp_name": "pool_prod",
+        "volume_group_name": "VG_ERP",
+        "type": "striped"
+      }
+    ],
+    "lsvolumegroup": [
+      { "id": "0", "name": "VG_CORE", "partition_name": "part-core", "volume_count": "1" },
+      { "id": "1", "name": "VG_ERP", "partition_name": "part-erp", "volume_count": "2", "replication_policy_name": "PBR_AsyncDR_15min" }
+    ],
+    "lspartition": [
+      { "id": "0", "name": "part-core", "type": "storage", "uuid": "aaaa-bbbb" },
+      { "id": "1", "name": "part-erp", "type": "storage", "uuid": "cccc-dddd" }
+    ],
+    "lspartnership": [
+      { "id": "0", "name": "trondheim.fs5300", "type": "ip_partnership", "location": "remote" }
+    ],
+    "lsreplicationpolicy": [
+      { "id": "0", "name": "PBR_AsyncDR_15min", "topology": "2-site-async-dr", "rpo_alert": "900" }
+    ],
+    "lsportfc": [],
+    "lsportip": [],
+    "lsiogrp": [{ "id": "0", "name": "io_grp0" }]
+  },
+  "errors": []
+}

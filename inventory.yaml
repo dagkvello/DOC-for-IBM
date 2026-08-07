@@ -1,0 +1,211 @@
+# Generated inventory — systems, pools, hosts, volumes, partitions.
+# Source mode: mock
+# systems=2
+
+systems:
+  - array_id: oslo.fs9500
+    host: 10.10.1.51
+    model: FS9500
+    firmware: 9.1.3.0
+    location: Oslo
+    capacity: "~450 TiB"
+    used_capacity: "~180 TiB"
+    enclosure_count: 2
+    node_count: 2
+    pool_count: 2
+    host_count: 2
+    volume_count: 3
+    volume_group_count: 2
+    partition_count: 2
+    grid_name: FS-grid-NO
+  - array_id: trondheim.fs5300
+    host: 10.10.2.52
+    model: FS5300
+    firmware: 9.1.3.0
+    location: Trondheim
+    capacity: "~200 TiB"
+    used_capacity: "~85 TiB"
+    enclosure_count: 1
+    node_count: 2
+    pool_count: 1
+    host_count: 1
+    volume_count: 3
+    volume_group_count: 2
+    partition_count: 2
+    grid_name: FS-grid-NO
+pools:
+  - system: oslo.fs9500
+    name: pool_prod
+    status: online
+    capacity: "300 TiB"
+    free: "140 TiB"
+    used: "160 TiB"
+    mdisk_count: 8
+    easy_tier: on
+  - system: oslo.fs9500
+    name: pool_infra
+    status: online
+    capacity: "150 TiB"
+    free: "90 TiB"
+    used: "60 TiB"
+    mdisk_count: 4
+    easy_tier: on
+  - system: trondheim.fs5300
+    name: pool_dr
+    status: online
+    capacity: "200 TiB"
+    free: "115 TiB"
+    used: "85 TiB"
+    mdisk_count: 6
+    easy_tier: on
+hosts:
+  - system: oslo.fs9500
+    name: esx01
+    status: degraded
+    type: generic
+    iogrp: io_grp0
+    port_count: 4
+    host_cluster: PROD_cluster
+  - system: oslo.fs9500
+    name: esx02
+    status: online
+    type: generic
+    iogrp: io_grp0
+    port_count: 4
+    host_cluster: PROD_cluster
+  - system: trondheim.fs5300
+    name: esx80
+    status: online
+    type: generic
+    iogrp: io_grp0
+    port_count: 4
+    host_cluster: DR_cluster
+host_clusters:
+  - system: oslo.fs9500
+    name: PROD_cluster
+    status: online
+    host_count: 2
+  - system: trondheim.fs5300
+    name: DR_cluster
+    status: online
+    host_count: 1
+volumes:
+  - system: oslo.fs9500
+    name: vol_ad01
+    id: 10
+    capacity: "500 GiB"
+    status: online
+    pool: pool_infra
+    volume_group: VG_CORE
+    type: striped
+    thin: ""
+  - system: oslo.fs9500
+    name: vol_db01
+    id: 11
+    capacity: "4 TiB"
+    status: online
+    pool: pool_prod
+    volume_group: VG_ERP
+    type: striped
+    thin: ""
+  - system: oslo.fs9500
+    name: vol_app01
+    id: 12
+    capacity: "2 TiB"
+    status: online
+    pool: pool_prod
+    volume_group: VG_ERP
+    type: striped
+    thin: ""
+  - system: trondheim.fs5300
+    name: vol_ad01
+    id: 10
+    capacity: "500 GiB"
+    status: online
+    pool: pool_dr
+    volume_group: VG_CORE
+    type: striped
+    thin: ""
+  - system: trondheim.fs5300
+    name: vol_db01
+    id: 11
+    capacity: "4 TiB"
+    status: online
+    pool: pool_dr
+    volume_group: VG_ERP
+    type: striped
+    thin: ""
+  - system: trondheim.fs5300
+    name: vol_app01
+    id: 12
+    capacity: "2 TiB"
+    status: online
+    pool: pool_dr
+    volume_group: VG_ERP
+    type: striped
+    thin: ""
+volume_groups:
+  - system: oslo.fs9500
+    name: VG_CORE
+    partition: part-core
+    policy: ""
+    volume_count: 1
+  - system: oslo.fs9500
+    name: VG_ERP
+    partition: part-erp
+    policy: PBR_AsyncDR_15min
+    volume_count: 2
+  - system: trondheim.fs5300
+    name: VG_CORE
+    partition: part-core
+    policy: ""
+    volume_count: 1
+  - system: trondheim.fs5300
+    name: VG_ERP
+    partition: part-erp
+    policy: PBR_AsyncDR_15min
+    volume_count: 2
+partitions:
+  - system: oslo.fs9500
+    name: part-core
+    type: storage
+    notes: "uuid: aaaa-bbbb"
+  - system: oslo.fs9500
+    name: part-erp
+    type: storage
+    notes: "uuid: cccc-dddd"
+  - system: trondheim.fs5300
+    name: part-core
+    type: storage
+    notes: ""
+  - system: trondheim.fs5300
+    name: part-erp
+    type: storage
+    notes: ""
+partnerships:
+  - system: oslo.fs9500
+    name: trondheim.fs5300
+    type: ip_partnership
+    location: remote
+    status: ""
+  - system: trondheim.fs5300
+    name: oslo.fs9500
+    type: ip_partnership
+    location: remote
+    status: ""
+policies:
+  - system: oslo.fs9500
+    name: PBR_AsyncDR_15min
+    topology: 2-site-async-dr
+    rpo_alert: 900
+  - system: trondheim.fs5300
+    name: PBR_AsyncDR_15min
+    topology: 2-site-async-dr
+    rpo_alert: 900
+stats:
+  system_count: 2
+  volume_count: 6
+  host_count: 3
+  pool_count: 3
+  partition_count: 4
+  volume_group_count: 4

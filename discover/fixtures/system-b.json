@@ -1,0 +1,96 @@
+{
+  "host": "10.10.2.52",
+  "label": "system-b",
+  "collected_at": "2026-08-07T10:00:00.000Z",
+  "commands": {
+    "lssystem": {
+      "id": "0000020420B0B0B1",
+      "name": "trondheim.fs5300",
+      "location": "Trondheim",
+      "product_name": "IBM FlashSystem 5300",
+      "code_level": "9.1.3.0",
+      "total_mdisk_capacity": "200.0TB",
+      "total_used_capacity": "85.0TB",
+      "flash_grid_name": "FS-grid-NO"
+    },
+    "lsenclosure": [{ "id": "1", "status": "online" }],
+    "lsnode": [
+      { "id": "1", "name": "node1", "status": "online", "IO_group_name": "io_grp0", "config_node": "yes" },
+      { "id": "2", "name": "node2", "status": "online", "IO_group_name": "io_grp0" }
+    ],
+    "lsmdiskgrp": [
+      {
+        "id": "0",
+        "name": "pool_dr",
+        "status": "online",
+        "capacity": "200.00TB",
+        "free_capacity": "115.00TB",
+        "used_capacity": "85.00TB",
+        "easy_tier": "on",
+        "mdisk_count": "6"
+      }
+    ],
+    "lsmdisk": [],
+    "lshost": [
+      {
+        "id": "0",
+        "name": "esx80",
+        "status": "online",
+        "type": "generic",
+        "IO_group_name": "io_grp0",
+        "port_count": "4",
+        "host_cluster_name": "DR_cluster"
+      }
+    ],
+    "lshostcluster": [
+      { "id": "0", "name": "DR_cluster", "status": "online", "host_count": "1" }
+    ],
+    "lsvdisk": [
+      {
+        "id": "10",
+        "name": "vol_ad01",
+        "capacity": "500.00GB",
+        "status": "online",
+        "mdisk_grp_name": "pool_dr",
+        "volume_group_name": "VG_CORE",
+        "type": "striped"
+      },
+      {
+        "id": "11",
+        "name": "vol_db01",
+        "capacity": "4.00TB",
+        "status": "online",
+        "mdisk_grp_name": "pool_dr",
+        "volume_group_name": "VG_ERP",
+        "type": "striped"
+      },
+      {
+        "id": "12",
+        "name": "vol_app01",
+        "capacity": "2.00TB",
+        "status": "online",
+        "mdisk_grp_name": "pool_dr",
+        "volume_group_name": "VG_ERP",
+        "type": "striped"
+      }
+    ],
+    "lsvolumegroup": [
+      { "id": "0", "name": "VG_CORE", "partition_name": "part-core", "volume_count": "1" },
+      { "id": "1", "name": "VG_ERP", "partition_name": "part-erp", "volume_count": "2", "replication_policy_name": "PBR_AsyncDR_15min" }
+    ],
+    "lspartition": [
+      { "id": "0", "name": "part-core", "type": "storage" },
+      { "id": "1", "name": "part-erp", "type": "storage" }
+    ],
+    "lspartnership": [
+      { "id": "0", "name": "oslo.fs9500", "type": "ip_partnership", "location": "remote" }
+    ],
+    "lsreplicationpolicy": [
+      { "id": "0", "name": "PBR_AsyncDR_15min", "topology": "2-site-async-dr", "rpo_alert": "900" }
+    ],
+    "lsportfc": [],
+    "lsportip": [],
+    "lsiogrp": [{ "id": "0", "name": "io_grp0" }]
+  },
+  "errors": []
+}
