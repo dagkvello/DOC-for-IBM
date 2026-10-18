@@ -34,12 +34,7 @@ lsreplicationpolicy
 lsnode
 ```
 
-### C. Related projects
-
-- **DOC-for-IBM** (this project): as-built FlashSystem / Flash Grid documentation wiki.
-- **DR-for-IBM-v2**: modular disaster recovery runbooks (async / sync-DR) with inventory tokens.
-
-### D. Contacts
+### C. Contacts
 
 | Role | Contact | Notes |
 |------|---------|-------|

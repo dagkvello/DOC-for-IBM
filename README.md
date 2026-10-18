@@ -53,7 +53,12 @@ node build-wiki.js
 # Or force generated / promote to active names:
 node build-wiki.js --generated
 node build-wiki.js --promote
+
+# SSH only, when TCP 7443 is blocked (installed systems)
+.\collect-ssh.ps1 -User monitor -Hosts 10.1.1.1,10.2.2.2
 ```
+
+`discover/discover.js` uses the REST API on port **7443**. Use that when the port is open. `collect-ssh.ps1` is the same inventory over SSH for arrays that only allow port 22.
 
 `build-wiki.js` resolution order:
 
